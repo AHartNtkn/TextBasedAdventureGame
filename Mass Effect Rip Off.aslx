@@ -423,12 +423,12 @@
               <inherit name="editor_object" />
               <drop type="boolean">false</drop>
               <take type="script">
-                msg ("You scoop out the slime and play with it at first but soon after, notice that it starts to dissolve your skin and you lose your hand. *anthony copy this to else ")
+                msg ("")
                 if (Got(Gloves)) {
                   msg ("You scoop out the slime and hold some in your hand.")
                 }
                 else {
-                  msg ("")
+                  msg ("You scoop out the slime and play with it at first but soon after, notice that it starts to dissolve your skin and you lose your hand.")
                 }
               </take>
             </object>
