@@ -317,15 +317,15 @@
             <scenery type="boolean">false</scenery>
             <take />
             <volume type="int">3</volume>
+            <feature_container />
+            <maxvolume type="int">2</maxvolume>
+            <maxobjects type="int">0</maxobjects>
             <extract type="scriptdictionary">
               <item key="Bottle of Sedative">
                 MoveObject (Sedative, Syringe)
                 MoveObject (Sedative1, Syringe)
               </item>
             </extract>
-            <feature_container />
-            <maxvolume type="int">2</maxvolume>
-            <maxobjects type="int">0</maxobjects>
           </object>
           <object name="Hammer">
             <inherit name="editor_object" />
@@ -421,25 +421,10 @@
             <closemsg>You close the jar and slowly the smell subsides.</closemsg>
             <object name="Purple Slime">
               <inherit name="editor_object" />
-              <take type="boolean">false</take>
-              <takemsg>You scoop out the slime and play with it at first but soon after, notice that it starts to dissolve your skin and you lose your hand.</takemsg>
-              <drop type="boolean">false</drop>
-            </object>
-            <object name="Purple Slime1">
-              <inherit name="editor_object" />
-              <takemsg>You scoop out the slime and play with it at first but soon after, notice that it starts to dissolve your skin and you lose your hand.</takemsg>
-              <drop type="boolean">false</drop>
               <take type="script">
-                msg ("")
+                msg ("You scoop out the slime and play with it at first but soon after, notice that it starts to dissolve your skin and you lose your hand.")
               </take>
-            </object>
-            <object name="Purple Slime2">
-              <inherit name="editor_object" />
-              <takemsg>You scoop out the slime and play with it at first but soon after, notice that it starts to dissolve your skin and you lose your hand.</takemsg>
               <drop type="boolean">false</drop>
-              <take type="script">
-                msg ("")
-              </take>
             </object>
           </object>
         </object>
