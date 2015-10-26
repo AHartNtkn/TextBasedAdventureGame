@@ -372,7 +372,7 @@
           <object name="Gloves">
             <inherit name="editor_object" />
             <take />
-            <look>You see stretchy gloves that look  like they fit you. </look>
+            <look>You see rubber gloves that just might stretch to fit you.</look>
           </object>
         </object>
         <object name="Shelf of Jars">
