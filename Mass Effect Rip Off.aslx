@@ -421,10 +421,16 @@
             <closemsg>You close the jar and slowly the smell subsides.</closemsg>
             <object name="Purple Slime">
               <inherit name="editor_object" />
-              <take type="script">
-                msg ("You scoop out the slime and play with it at first but soon after, notice that it starts to dissolve your skin and you lose your hand.")
-              </take>
               <drop type="boolean">false</drop>
+              <take type="script">
+                msg ("You scoop out the slime and play with it at first but soon after, notice that it starts to dissolve your skin and you lose your hand. *anthony copy this to else ")
+                if (Got(Gloves)) {
+                  msg ("You scoop out the slime and hold some in your hand.")
+                }
+                else {
+                  msg ("")
+                }
+              </take>
             </object>
           </object>
         </object>
