@@ -7,6 +7,7 @@
     <version>0.1</version>
     <firstpublished>2015</firstpublished>
     <menufont>Georgia, serif</menufont>
+    <author>Anthony H, Alejandro R, Sam twins</author>
   </game>
   <command name="look pragma">
     <pattern>look #object_one#</pattern>
@@ -198,6 +199,10 @@
           <look>An odd jar, filled with peanuts. On it is a label reading "Jar of: Deez Nutz".</look>
           <take />
           <scenery type="boolean">false</scenery>
+        </object>
+        <object name="Jar of Pickles">
+          <inherit name="editor_object" />
+          <look>Yummy pickels.</look>
         </object>
       </object>
       <object name="Probe">
