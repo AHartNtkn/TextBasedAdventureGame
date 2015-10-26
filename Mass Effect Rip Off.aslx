@@ -24,6 +24,10 @@
     <defaultbackground>Black</defaultbackground>
     <showlocation />
     <showborder type="boolean">false</showborder>
+    <gridmap type="boolean">false</gridmap>
+    <showhealth type="boolean">false</showhealth>
+    <feature_asktell />
+    <feature_limitinventory />
   </game>
   <command name="look pragma">
     <pattern>look #object_one#</pattern>
@@ -178,12 +182,16 @@
               finish
             </item>
           </kill>
+          <volume type="int">50</volume>
+          <maxvolume type="int">20</maxvolume>
+          <containerfullmessage>You can't hold any more items.</containerfullmessage>
         </object>
         <exit alias="north" to="Science Room">
           <inherit name="northdirection" />
         </exit>
         <object name="Tarp">
           <inherit name="editor_object" />
+          <inherit name="container_limited" />
           <feature_container />
           <isopen type="boolean">false</isopen>
           <close type="boolean">false</close>
@@ -219,6 +227,15 @@
               msg ("You cover the Surgical Table with the Tarp.")
             </item>
           </cover>
+          <volume type="int">20</volume>
+          <hidechildren />
+          <maxvolume type="int">80</maxvolume>
+          <listchildren type="boolean">false</listchildren>
+          <take />
+          <ontake type="script">
+            HandleSingleCommand ("uncover tarp")
+            AddToInventory (Tarp)
+          </ontake>
           <object name="Unicorn corpse">
             <inherit name="editor_object" />
             <look>A large four-limbed alien creature, strongly resembling a unicorn. It has a dangerous looking horn on its head.</look>
@@ -242,11 +259,13 @@
             </cutopenwith>
             <usedefaultprefix type="boolean">false</usedefaultprefix>
             <prefix>a</prefix>
+            <volume type="int">60</volume>
             <object name="Unicorn Horn">
               <inherit name="editor_object" />
               <take />
               <usedefaultprefix type="boolean">false</usedefaultprefix>
               <prefix>a</prefix>
+              <volume type="int">5</volume>
             </object>
           </object>
         </object>
@@ -262,6 +281,7 @@
             <scenery type="boolean">false</scenery>
             <take />
             <usedefaultprefix type="boolean">false</usedefaultprefix>
+            <volume type="int">3</volume>
           </object>
           <object name="Scalpel">
             <inherit name="editor_object" />
@@ -280,6 +300,7 @@
                 AddToInventory (Green gem)
               </item>
             </selfuseon>
+            <volume type="int">2</volume>
           </object>
           <object name="Bone Saw">
             <inherit name="editor_object" />
@@ -288,16 +309,19 @@
             <alt type="stringlist">
               <value>saw</value>
             </alt>
+            <volume type="int">4</volume>
           </object>
-          <object name="Needle">
+          <object name="Syringe">
             <inherit name="editor_object" />
             <scenery type="boolean">false</scenery>
             <take />
+            <volume type="int">3</volume>
           </object>
           <object name="Hammer">
             <inherit name="editor_object" />
             <scenery type="boolean">false</scenery>
             <take />
+            <volume type="int">4</volume>
           </object>
           <object name="Bottle of Sedative">
             <inherit name="editor_object" />
@@ -307,6 +331,7 @@
               <value>sedative</value>
             </alt>
             <take />
+            <volume type="int">2</volume>
           </object>
         </object>
         <object name="Shelf of Jars">
@@ -320,21 +345,26 @@
             <inherit name="editor_object" />
             <take />
             <scenery type="boolean">false</scenery>
+            <volume type="int">5</volume>
           </object>
           <object name="Jar of Eyes">
             <inherit name="editor_object" />
             <take />
             <scenery type="boolean">false</scenery>
+            <volume type="int">5</volume>
           </object>
           <object name="Jar of Peanuts">
             <inherit name="editor_object" />
             <look>An odd jar, filled with peanuts. On it is a label reading "Jar of: Deez Nutz".</look>
             <take />
             <scenery type="boolean">false</scenery>
+            <volume type="int">5</volume>
           </object>
           <object name="Jar of Pickles">
             <inherit name="editor_object" />
             <look>Yummy pickels.</look>
+            <volume type="int">5</volume>
+            <take />
           </object>
         </object>
         <object name="Probe">
@@ -351,6 +381,7 @@
             <inherit name="editor_object" />
             <look>A dildo used by aliens for probing.</look>
             <take />
+            <volume type="int">3</volume>
           </object>
         </object>
       </object>
