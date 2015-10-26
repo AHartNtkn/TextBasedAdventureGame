@@ -175,6 +175,9 @@
         <object name="player">
           <inherit name="editor_object" />
           <inherit name="editor_player" />
+          <volume type="int">50</volume>
+          <maxvolume type="int">20</maxvolume>
+          <containerfullmessage>You can't hold any more items.</containerfullmessage>
           <kill type="scriptdictionary">
             <item key="Scalpel">
               msg ("You stab yourself in the throat. As you bleed you, you wonder, \"what was the point\"?")
@@ -182,9 +185,6 @@
               finish
             </item>
           </kill>
-          <volume type="int">50</volume>
-          <maxvolume type="int">20</maxvolume>
-          <containerfullmessage>You can't hold any more items.</containerfullmessage>
         </object>
         <exit alias="north" to="Science Room">
           <inherit name="northdirection" />
@@ -198,6 +198,11 @@
           <open type="boolean">false</open>
           <contentsprefix type="string"></contentsprefix>
           <look>A large blue tarp. Something big could probably be hidden under it.</look>
+          <volume type="int">20</volume>
+          <hidechildren />
+          <maxvolume type="int">80</maxvolume>
+          <listchildren type="boolean">false</listchildren>
+          <take />
           <uncover type="script">
             if (ListCount(GetDirectChildren(Tarp))=0) {
               msg ("There is nothing under the Tarp to uncover.")
@@ -215,6 +220,10 @@
               }
             }
           </uncover>
+          <ontake type="script">
+            HandleSingleCommand ("uncover tarp")
+            AddToInventory (Tarp)
+          </ontake>
           <cover type="scriptdictionary">
             <item key="Unicorn corpse">
               MakeObjectInvisible (Unicorn corpse)
@@ -227,21 +236,15 @@
               msg ("You cover the Surgical Table with the Tarp.")
             </item>
           </cover>
-          <volume type="int">20</volume>
-          <hidechildren />
-          <maxvolume type="int">80</maxvolume>
-          <listchildren type="boolean">false</listchildren>
-          <take />
-          <ontake type="script">
-            HandleSingleCommand ("uncover tarp")
-            AddToInventory (Tarp)
-          </ontake>
           <object name="Unicorn corpse">
             <inherit name="editor_object" />
             <look>A large four-limbed alien creature, strongly resembling a unicorn. It has a dangerous looking horn on its head.</look>
             <visible type="boolean">false</visible>
             <alias>Unicorn corpse</alias>
             <scenery type="boolean">false</scenery>
+            <usedefaultprefix type="boolean">false</usedefaultprefix>
+            <prefix>a</prefix>
+            <volume type="int">60</volume>
             <cutwith type="scriptdictionary">
               <item key="Scalpel">
                 if (Contains (Unicorn corpse,Unicorn Horn)) {
@@ -257,9 +260,6 @@
               <item key="Scalpel">
               </item>
             </cutopenwith>
-            <usedefaultprefix type="boolean">false</usedefaultprefix>
-            <prefix>a</prefix>
-            <volume type="int">60</volume>
             <object name="Unicorn Horn">
               <inherit name="editor_object" />
               <take />
@@ -291,6 +291,7 @@
             <feature_usegive />
             <use />
             <take />
+            <volume type="int">2</volume>
             <selfuseanything type="script">
               msg ("You try cutting, but eventually stop before your scalpel becomes as dull as you are.")
             </selfuseanything>
@@ -300,7 +301,6 @@
                 AddToInventory (Green gem)
               </item>
             </selfuseon>
-            <volume type="int">2</volume>
           </object>
           <object name="Bone Saw">
             <inherit name="editor_object" />
@@ -369,6 +369,11 @@
               <eatmsg>You consume the seditive, which causes you to feel very sleepy...</eatmsg>
             </object>
           </object>
+          <object name="Gloves">
+            <inherit name="editor_object" />
+            <take />
+            <look>You see stretchy gloves that look  like they fit you. </look>
+          </object>
         </object>
         <object name="Shelf of Jars">
           <inherit name="editor_object" />
@@ -377,6 +382,7 @@
           <feature_container />
           <hidechildren />
           <listchildren />
+          <alt type="stringlist" />
           <object name="Jar of Stomach">
             <inherit name="editor_object" />
             <take />
@@ -402,6 +408,39 @@
             <volume type="int">5</volume>
             <take />
             <takemsg>Default take.</takemsg>
+          </object>
+          <object name="Jar of Purple Slime">
+            <inherit name="editor_object" />
+            <inherit name="container_limited" />
+            <take type="boolean">false</take>
+            <look>You think it's possibly some form of alien  blood or from atleast out of this world.</look>
+            <feature_container />
+            <maxvolume type="int">4</maxvolume>
+            <isopen type="boolean">false</isopen>
+            <openmsg>You open the jar and immediately smell a very pungent stench.</openmsg>
+            <closemsg>You close the jar and slowly the smell subsides.</closemsg>
+            <object name="Purple Slime">
+              <inherit name="editor_object" />
+              <take type="boolean">false</take>
+              <takemsg>You scoop out the slime and play with it at first but soon after, notice that it starts to dissolve your skin and you lose your hand.</takemsg>
+              <drop type="boolean">false</drop>
+            </object>
+            <object name="Purple Slime1">
+              <inherit name="editor_object" />
+              <takemsg>You scoop out the slime and play with it at first but soon after, notice that it starts to dissolve your skin and you lose your hand.</takemsg>
+              <drop type="boolean">false</drop>
+              <take type="script">
+                msg ("")
+              </take>
+            </object>
+            <object name="Purple Slime2">
+              <inherit name="editor_object" />
+              <takemsg>You scoop out the slime and play with it at first but soon after, notice that it starts to dissolve your skin and you lose your hand.</takemsg>
+              <drop type="boolean">false</drop>
+              <take type="script">
+                msg ("")
+              </take>
+            </object>
           </object>
         </object>
         <object name="Probe">
