@@ -325,6 +325,8 @@
           </object>
           <object name="Bottle of Sedative">
             <inherit name="editor_object" />
+            <inherit name="edible" />
+            <inherit name="container_limited" />
             <scenery type="boolean">false</scenery>
             <alt type="stringlist">
               <value>bottle</value>
@@ -332,6 +334,18 @@
             </alt>
             <take />
             <volume type="int">2</volume>
+            <feature_container />
+            <feature_edible />
+            <isopen type="boolean">false</isopen>
+            <maxvolume type="int">2</maxvolume>
+            <pour type="script">
+              if (Contains (,)) {
+              }
+            </pour>
+            <object name="Sedative">
+              <inherit name="editor_object" />
+              <volume type="int">1</volume>
+            </object>
           </object>
         </object>
         <object name="Shelf of Jars">
@@ -372,7 +386,7 @@
           <look>An odd probe attached to the ceiling. It has an odd phallic object on its end. You dread to think what its used for.</look>
           <take type="script">
             msg ("You grab and pull the probe, but it's stuck to the wall.")
-            if (not(Got(Alien Dildo))) {
+            if (Contains (Probe,Alien Dildo)) {
               msg ("As you're grabbing it, your hand slips, carrying a piece of the probe.")
               MoveObject (Alien Dildo, player)
             }
@@ -459,5 +473,10 @@
     <property>cutopenwith</property>
     <pattern>cut open with</pattern>
     <defaultexpression>"You can't cut open with " + object.article + "."</defaultexpression>
+  </verb>
+  <verb>
+    <property>pour</property>
+    <pattern>pour</pattern>
+    <defaultexpression>"You can't pour " + object.article + "."</defaultexpression>
   </verb>
 </asl>
