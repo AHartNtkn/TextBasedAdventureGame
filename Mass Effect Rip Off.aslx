@@ -22,365 +22,371 @@
   </verb>
   <object name="Ship">
     <inherit name="editor_object" />
-    <object name="Elevator Down">
-      <inherit name="editor_room" />
-      <alias></alias>
-      <descprefix type="string"></descprefix>
-      <exitslistprefix type="string"></exitslistprefix>
-      <usedefaultprefix type="boolean">false</usedefaultprefix>
-      <description type="script">
-        msg ("You take the elevator up to the North Hall.")
-        MoveObject (player, North Hall)
-      </description>
-    </object>
-    <object name="Examination Room">
-      <inherit name="editor_room" />
-      <alias>Examination Room</alias>
-      <description>A small room with several tables in it, as well as many surgical looking tools in the walls and tables. It looks like the aliens killed more than a few people here.</description>
-      <descprefix>You are in</descprefix>
-      <usedefaultprefix type="boolean">false</usedefaultprefix>
-      <prefix>the</prefix>
-      <object name="player">
-        <inherit name="editor_object" />
-        <inherit name="editor_player" />
-        <kill type="scriptdictionary">
-          <item key="Scalpel">
-            msg ("You stab yourself in the throat. As you bleed you, you wonder, \"what was the point\"?")
-            msg ("Game over.")
-            finish
-          </item>
-        </kill>
+    <object name="First Floor">
+      <inherit name="editor_object" />
+      <object name="Starboard Observation Deck">
+        <inherit name="editor_room" />
+        <usedefaultprefix type="boolean">false</usedefaultprefix>
+        <prefix>the</prefix>
+        <exit alias="southwest" to="North Hall">
+          <inherit name="southwestdirection" />
+        </exit>
       </object>
-      <exit alias="north" to="Science Room">
-        <inherit name="northdirection" />
-      </exit>
-      <object name="Tarp">
-        <inherit name="editor_object" />
-        <feature_container />
-        <isopen type="boolean">false</isopen>
-        <close type="boolean">false</close>
-        <open type="boolean">false</open>
-        <contentsprefix type="string"></contentsprefix>
-        <look>A large blue tarp. Something big could probably be hidden under it.</look>
-        <uncover type="script">
-          if (ListCount(GetDirectChildren(Tarp))=0) {
-            msg ("There is nothing under the Tarp to uncover.")
-          }
-          else {
-            foreach (child, GetDirectChildren(Tarp)) {
-              MakeObjectVisible (child)
-            }
-            msg ("You uncover the tarp, revealing;")
-            foreach (child, GetDirectChildren(Tarp)) {
-              msg (GetDisplayName(child))
-            }
-            foreach (child, GetDirectChildren(Tarp)) {
-              MoveObjectHere (child)
-            }
-          }
-        </uncover>
-        <cover type="scriptdictionary">
-          <item key="Unicorn corpse">
-            MakeObjectInvisible (Unicorn corpse)
-            MoveObject (Unicorn corpse, Tarp)
-            msg ("You cover the Unicorn corpse with the Tarp.")
-          </item>
-          <item key="Surgical Table">
-            MakeObjectInvisible (Surgical Table)
-            MoveObject (Surgical Table, Tarp)
-            msg ("You cover the Surgical Table with the Tarp.")
-          </item>
-        </cover>
-        <object name="Unicorn corpse">
+      <object name="Port Side Observation Deck">
+        <inherit name="editor_room" />
+        <usedefaultprefix type="boolean">false</usedefaultprefix>
+        <prefix>the</prefix>
+        <exit alias="southeast" to="North Hall">
+          <inherit name="southeastdirection" />
+        </exit>
+      </object>
+      <object name="Navigation Room">
+        <inherit name="editor_room" />
+        <usedefaultprefix type="boolean">false</usedefaultprefix>
+        <prefix>the</prefix>
+        <exit alias="south" to="North Hall">
+          <inherit name="southdirection" />
+        </exit>
+      </object>
+      <object name="Storage">
+        <inherit name="editor_room" />
+        <usedefaultprefix type="boolean">false</usedefaultprefix>
+        <exit alias="east" to="North Hall">
+          <inherit name="eastdirection" />
+        </exit>
+      </object>
+      <object name="Engineering">
+        <inherit name="editor_room" />
+        <usedefaultprefix type="boolean">false</usedefaultprefix>
+        <exit alias="north" to="South Hall">
+          <inherit name="northdirection" />
+        </exit>
+      </object>
+      <object name="Equipment Lockup">
+        <inherit name="editor_room" />
+        <usedefaultprefix type="boolean">false</usedefaultprefix>
+        <exit alias="southwest" to="South Hall">
+          <inherit name="southwestdirection" />
+        </exit>
+      </object>
+      <object name="Air Lock">
+        <inherit name="editor_room" />
+        <usedefaultprefix type="boolean">false</usedefaultprefix>
+        <prefix>the</prefix>
+        <exit alias="west" to="North Hall">
+          <inherit name="westdirection" />
+        </exit>
+      </object>
+      <object name="Medical Bay">
+        <inherit name="editor_room" />
+        <usedefaultprefix type="boolean">false</usedefaultprefix>
+        <prefix>the</prefix>
+        <exit alias="west" to="South Hall">
+          <inherit name="westdirection" />
+        </exit>
+      </object>
+      <object name="North Hall">
+        <inherit name="editor_room" />
+        <usedefaultprefix type="boolean">false</usedefaultprefix>
+        <prefix>the</prefix>
+        <exit alias="south" to="South Hall">
+          <inherit name="southdirection" />
+        </exit>
+        <exit alias="north" to="Navigation Room">
+          <inherit name="northdirection" />
+        </exit>
+        <exit alias="northeast" to="Starboard Observation Deck">
+          <inherit name="northeastdirection" />
+        </exit>
+        <exit alias="northwest" to="Port Side Observation Deck">
+          <inherit name="northwestdirection" />
+        </exit>
+        <exit alias="west" to="Storage">
+          <inherit name="westdirection" />
+        </exit>
+        <exit alias="east" to="Air Lock">
+          <inherit name="eastdirection" />
+        </exit>
+        <exit alias="southwest" to="Elevator Up">
+          <inherit name="southwestdirection" />
+        </exit>
+      </object>
+      <object name="South Hall">
+        <inherit name="editor_room" />
+        <usedefaultprefix type="boolean">false</usedefaultprefix>
+        <prefix>the</prefix>
+        <exit alias="west" to="Science Room">
+          <inherit name="westdirection" />
+        </exit>
+        <exit alias="north" to="North Hall">
+          <inherit name="northdirection" />
+        </exit>
+        <exit alias="east" to="Medical Bay">
+          <inherit name="eastdirection" />
+        </exit>
+        <exit alias="northeast" to="Equipment Lockup">
+          <inherit name="northeastdirection" />
+        </exit>
+        <exit alias="northwest" to="Elevator Up">
+          <inherit name="northwestdirection" />
+        </exit>
+        <exit alias="south" to="Engineering">
+          <inherit name="southdirection" />
+        </exit>
+      </object>
+      <object name="Science Room">
+        <inherit name="editor_room" />
+        <usedefaultprefix type="boolean">false</usedefaultprefix>
+        <prefix>the</prefix>
+        <exit alias="south" to="Examination Room">
+          <inherit name="southdirection" />
+        </exit>
+        <exit alias="east" to="South Hall">
+          <inherit name="eastdirection" />
+        </exit>
+      </object>
+      <object name="Examination Room">
+        <inherit name="editor_room" />
+        <alias>Examination Room</alias>
+        <description>A small room with several tables in it, as well as many surgical looking tools in the walls and tables. It looks like the aliens killed more than a few people here.</description>
+        <descprefix>You are in</descprefix>
+        <usedefaultprefix type="boolean">false</usedefaultprefix>
+        <prefix>the</prefix>
+        <object name="player">
           <inherit name="editor_object" />
-          <look>A large four-limbed alien creature, strongly resembling a unicorn. It has a dangerous looking horn on its head.</look>
-          <visible type="boolean">false</visible>
-          <alias>Unicorn corpse</alias>
-          <scenery type="boolean">false</scenery>
-          <cutwith type="scriptdictionary">
+          <inherit name="editor_player" />
+          <kill type="scriptdictionary">
             <item key="Scalpel">
-              if (Contains (Unicorn corpse,Unicorn Horn)) {
-                MoveObject (Unicorn Horn, Examination Room)
-                msg ("You start slicing up the unicorn. Eventually it turns into a bloody pulp. You notice that something fall to the floor.")
-              }
-              else {
-                msg ("You continue slicing up the unicorn corpse, though, at this point it could pass for any sort of finely minced meat.")
-              }
+              msg ("You stab yourself in the throat. As you bleed you, you wonder, \"what was the point\"?")
+              msg ("Game over.")
+              finish
             </item>
-          </cutwith>
-          <cutopenwith type="scriptdictionary">
-            <item key="Scalpel">
+          </kill>
+        </object>
+        <exit alias="north" to="Science Room">
+          <inherit name="northdirection" />
+        </exit>
+        <object name="Tarp">
+          <inherit name="editor_object" />
+          <feature_container />
+          <isopen type="boolean">false</isopen>
+          <close type="boolean">false</close>
+          <open type="boolean">false</open>
+          <contentsprefix type="string"></contentsprefix>
+          <look>A large blue tarp. Something big could probably be hidden under it.</look>
+          <uncover type="script">
+            if (ListCount(GetDirectChildren(Tarp))=0) {
+              msg ("There is nothing under the Tarp to uncover.")
+            }
+            else {
+              foreach (child, GetDirectChildren(Tarp)) {
+                MakeObjectVisible (child)
+              }
+              msg ("You uncover the tarp, revealing;")
+              foreach (child, GetDirectChildren(Tarp)) {
+                msg (GetDisplayName(child))
+              }
+              foreach (child, GetDirectChildren(Tarp)) {
+                MoveObjectHere (child)
+              }
+            }
+          </uncover>
+          <cover type="scriptdictionary">
+            <item key="Unicorn corpse">
+              MakeObjectInvisible (Unicorn corpse)
+              MoveObject (Unicorn corpse, Tarp)
+              msg ("You cover the Unicorn corpse with the Tarp.")
             </item>
-          </cutopenwith>
-          <object name="Unicorn Horn">
+            <item key="Surgical Table">
+              MakeObjectInvisible (Surgical Table)
+              MoveObject (Surgical Table, Tarp)
+              msg ("You cover the Surgical Table with the Tarp.")
+            </item>
+          </cover>
+          <object name="Unicorn corpse">
             <inherit name="editor_object" />
+            <look>A large four-limbed alien creature, strongly resembling a unicorn. It has a dangerous looking horn on its head.</look>
+            <visible type="boolean">false</visible>
+            <alias>Unicorn corpse</alias>
+            <scenery type="boolean">false</scenery>
+            <cutwith type="scriptdictionary">
+              <item key="Scalpel">
+                if (Contains (Unicorn corpse,Unicorn Horn)) {
+                  MoveObject (Unicorn Horn, Examination Room)
+                  msg ("You start slicing up the unicorn. Eventually it turns into a bloody pulp. You notice that something fall to the floor.")
+                }
+                else {
+                  msg ("You continue slicing up the unicorn corpse, though, at this point it could pass for any sort of finely minced meat.")
+                }
+              </item>
+            </cutwith>
+            <cutopenwith type="scriptdictionary">
+              <item key="Scalpel">
+              </item>
+            </cutopenwith>
+            <object name="Unicorn Horn">
+              <inherit name="editor_object" />
+              <take />
+            </object>
+          </object>
+        </object>
+        <object name="Surgical Table">
+          <inherit name="editor_object" />
+          <inherit name="surface" />
+          <feature_container />
+          <look>You see several bloody surgical tools. It's odd that the aliens seem to use the same kinds that humans do.</look>
+          <hidechildren />
+          <listchildren />
+          <object name="Tongs">
+            <inherit name="editor_object" />
+            <scenery type="boolean">false</scenery>
+            <take />
+            <usedefaultprefix type="boolean">false</usedefaultprefix>
+          </object>
+          <object name="Scalpel">
+            <inherit name="editor_object" />
+            <alias>Scalpel</alias>
+            <look>A sharp implement for cutting into things, especially people.</look>
+            <scenery type="boolean">false</scenery>
+            <feature_usegive />
+            <use />
+            <take />
+            <selfuseanything type="script">
+              msg ("You try cutting, but eventually stop before your scalpel becomes as dull as you are.")
+            </selfuseanything>
+            <selfuseon type="scriptdictionary">
+              <item key="cadaver">
+                msg ("You cut open your parents (WTF is wrong with you?), dig around for a while, and eventually find a green gem!")
+                AddToInventory (Green gem)
+              </item>
+            </selfuseon>
+          </object>
+          <object name="Bone Saw">
+            <inherit name="editor_object" />
+            <scenery type="boolean">false</scenery>
+            <take />
+            <alt type="stringlist">
+              <value>saw</value>
+            </alt>
+          </object>
+          <object name="Needle">
+            <inherit name="editor_object" />
+            <scenery type="boolean">false</scenery>
+            <take />
+          </object>
+          <object name="Hammer">
+            <inherit name="editor_object" />
+            <scenery type="boolean">false</scenery>
+            <take />
+          </object>
+          <object name="Bottle of Sedative">
+            <inherit name="editor_object" />
+            <scenery type="boolean">false</scenery>
+            <alt type="stringlist">
+              <value>bottle</value>
+              <value>sedative</value>
+            </alt>
+            <take />
+          </object>
+        </object>
+        <object name="Shelf of Jars">
+          <inherit name="editor_object" />
+          <inherit name="surface" />
+          <look>A shelf with many many jars filled with organs. </look>
+          <feature_container />
+          <hidechildren />
+          <listchildren />
+          <object name="Jar of Stomach">
+            <inherit name="editor_object" />
+            <take />
+            <scenery type="boolean">false</scenery>
+          </object>
+          <object name="Jar of Eyes">
+            <inherit name="editor_object" />
+            <take />
+            <scenery type="boolean">false</scenery>
+          </object>
+          <object name="Jar of Peanuts">
+            <inherit name="editor_object" />
+            <look>An odd jar, filled with peanuts. On it is a label reading "Jar of: Deez Nutz".</look>
+            <take />
+            <scenery type="boolean">false</scenery>
+          </object>
+          <object name="Jar of Pickles">
+            <inherit name="editor_object" />
+            <look>Yummy pickels.</look>
+          </object>
+        </object>
+        <object name="Probe">
+          <inherit name="editor_object" />
+          <look>An odd probe attached to the ceiling. It has an odd phallic object on its end. You dread to think what its used for.</look>
+          <take type="script">
+            msg ("You grab and pull the probe, but it's stuck to the wall.")
+            if (not(Got(Alien Dildo))) {
+              msg ("As you're grabbing it, your hand slips, carrying a piece of the probe.")
+              MoveObject (Alien Dildo, player)
+            }
+          </take>
+          <object name="Alien Dildo">
+            <inherit name="editor_object" />
+            <look>A dildo used by aliens for probing.</look>
             <take />
           </object>
         </object>
       </object>
-      <object name="Surgical Table">
-        <inherit name="editor_object" />
-        <inherit name="surface" />
-        <feature_container />
-        <look>You see several bloody surgical tools. It's odd that the aliens seem to use the same kinds that humans do.</look>
-        <hidechildren />
-        <listchildren />
-        <object name="Tongs">
-          <inherit name="editor_object" />
-          <scenery type="boolean">false</scenery>
-          <take />
-          <usedefaultprefix type="boolean">false</usedefaultprefix>
-        </object>
-        <object name="Scalpel">
-          <inherit name="editor_object" />
-          <alias>Scalpel</alias>
-          <look>A sharp implement for cutting into things, especially people.</look>
-          <scenery type="boolean">false</scenery>
-          <feature_usegive />
-          <use />
-          <take />
-          <selfuseanything type="script">
-            msg ("You try cutting, but eventually stop before your scalpel becomes as dull as you are.")
-          </selfuseanything>
-          <selfuseon type="scriptdictionary">
-            <item key="cadaver">
-              msg ("You cut open your parents (WTF is wrong with you?), dig around for a while, and eventually find a green gem!")
-              AddToInventory (Green gem)
-            </item>
-          </selfuseon>
-        </object>
-        <object name="Bone Saw">
-          <inherit name="editor_object" />
-          <scenery type="boolean">false</scenery>
-          <take />
-          <alt type="stringlist">
-            <value>saw</value>
-          </alt>
-        </object>
-        <object name="Needle">
-          <inherit name="editor_object" />
-          <scenery type="boolean">false</scenery>
-          <take />
-        </object>
-        <object name="Hammer">
-          <inherit name="editor_object" />
-          <scenery type="boolean">false</scenery>
-          <take />
-        </object>
-        <object name="Bottle of Sedative">
-          <inherit name="editor_object" />
-          <scenery type="boolean">false</scenery>
-          <alt type="stringlist">
-            <value>bottle</value>
-            <value>sedative</value>
-          </alt>
-          <take />
-        </object>
-      </object>
-      <object name="Shelf of Jars">
-        <inherit name="editor_object" />
-        <inherit name="surface" />
-        <look>A shelf with many many jars filled with organs. </look>
-        <feature_container />
-        <hidechildren />
-        <listchildren />
-        <object name="Jar of Stomach">
-          <inherit name="editor_object" />
-          <take />
-          <scenery type="boolean">false</scenery>
-        </object>
-        <object name="Jar of Eyes">
-          <inherit name="editor_object" />
-          <take />
-          <scenery type="boolean">false</scenery>
-        </object>
-        <object name="Jar of Peanuts">
-          <inherit name="editor_object" />
-          <look>An odd jar, filled with peanuts. On it is a label reading "Jar of: Deez Nutz".</look>
-          <take />
-          <scenery type="boolean">false</scenery>
-        </object>
-        <object name="Jar of Pickles">
-          <inherit name="editor_object" />
-          <look>Yummy pickels.</look>
-        </object>
-      </object>
-      <object name="Probe">
-        <inherit name="editor_object" />
-        <look>An odd probe attached to the ceiling. It has an odd phallic object on its end. You dread to think what its used for.</look>
-        <take type="script">
-          msg ("You grab and pull the probe, but it's stuck to the wall.")
-          if (not(Got(Alien Dildo))) {
-            msg ("As you're grabbing it, your hand slips, carrying a piece of the probe.")
-            MoveObject (Alien Dildo, player)
-          }
-        </take>
-        <object name="Alien Dildo">
-          <inherit name="editor_object" />
-          <look>A dildo used by aliens for probing.</look>
-          <take />
-        </object>
+      <object name="Elevator Down">
+        <inherit name="editor_room" />
+        <alias></alias>
+        <descprefix type="string"></descprefix>
+        <exitslistprefix type="string"></exitslistprefix>
+        <usedefaultprefix type="boolean">false</usedefaultprefix>
+        <description type="script">
+          msg ("You take the elevator up to the North Hall.")
+          MoveObject (player, North Hall)
+        </description>
       </object>
     </object>
-    <object name="Science Room">
-      <inherit name="editor_room" />
-      <usedefaultprefix type="boolean">false</usedefaultprefix>
-      <prefix>the</prefix>
-      <exit alias="south" to="Examination Room">
-        <inherit name="southdirection" />
-      </exit>
-      <exit alias="east" to="South Hall">
-        <inherit name="eastdirection" />
-      </exit>
-    </object>
-    <object name="South Hall">
-      <inherit name="editor_room" />
-      <usedefaultprefix type="boolean">false</usedefaultprefix>
-      <prefix>the</prefix>
-      <exit alias="west" to="Science Room">
-        <inherit name="westdirection" />
-      </exit>
-      <exit alias="north" to="North Hall">
-        <inherit name="northdirection" />
-      </exit>
-      <exit alias="east" to="Medical Bay">
-        <inherit name="eastdirection" />
-      </exit>
-      <exit alias="northeast" to="Equipment Lockup">
-        <inherit name="northeastdirection" />
-      </exit>
-      <exit alias="northwest" to="Elevator Up">
-        <inherit name="northwestdirection" />
-      </exit>
-      <exit alias="south" to="Engineering">
-        <inherit name="southdirection" />
-      </exit>
-    </object>
-    <object name="North Hall">
-      <inherit name="editor_room" />
-      <usedefaultprefix type="boolean">false</usedefaultprefix>
-      <prefix>the</prefix>
-      <exit alias="south" to="South Hall">
-        <inherit name="southdirection" />
-      </exit>
-      <exit alias="north" to="Navigation Room">
-        <inherit name="northdirection" />
-      </exit>
-      <exit alias="northeast" to="Starboard Observation Deck">
-        <inherit name="northeastdirection" />
-      </exit>
-      <exit alias="northwest" to="Port Side Observation Deck">
-        <inherit name="northwestdirection" />
-      </exit>
-      <exit alias="west" to="Storage">
-        <inherit name="westdirection" />
-      </exit>
-      <exit alias="east" to="Air Lock">
-        <inherit name="eastdirection" />
-      </exit>
-      <exit alias="southwest" to="Elevator Up">
-        <inherit name="southwestdirection" />
-      </exit>
-    </object>
-    <object name="Medical Bay">
-      <inherit name="editor_room" />
-      <usedefaultprefix type="boolean">false</usedefaultprefix>
-      <prefix>the</prefix>
-      <exit alias="west" to="South Hall">
-        <inherit name="westdirection" />
-      </exit>
-    </object>
-    <object name="Air Lock">
-      <inherit name="editor_room" />
-      <usedefaultprefix type="boolean">false</usedefaultprefix>
-      <prefix>the</prefix>
-      <exit alias="west" to="North Hall">
-        <inherit name="westdirection" />
-      </exit>
-    </object>
-    <object name="Equipment Lockup">
-      <inherit name="editor_room" />
-      <usedefaultprefix type="boolean">false</usedefaultprefix>
-      <exit alias="southwest" to="South Hall">
-        <inherit name="southwestdirection" />
-      </exit>
-    </object>
-    <object name="Engineering">
-      <inherit name="editor_room" />
-      <usedefaultprefix type="boolean">false</usedefaultprefix>
-      <exit alias="north" to="South Hall">
-        <inherit name="northdirection" />
-      </exit>
-    </object>
-    <object name="Storage">
-      <inherit name="editor_room" />
-      <usedefaultprefix type="boolean">false</usedefaultprefix>
-      <exit alias="east" to="North Hall">
-        <inherit name="eastdirection" />
-      </exit>
-    </object>
-    <object name="Navigation Room">
-      <inherit name="editor_room" />
-      <usedefaultprefix type="boolean">false</usedefaultprefix>
-      <prefix>the</prefix>
-      <exit alias="south" to="North Hall">
-        <inherit name="southdirection" />
-      </exit>
-    </object>
-    <object name="Port Side Observation Deck">
-      <inherit name="editor_room" />
-      <usedefaultprefix type="boolean">false</usedefaultprefix>
-      <prefix>the</prefix>
-      <exit alias="southeast" to="North Hall">
-        <inherit name="southeastdirection" />
-      </exit>
-    </object>
-    <object name="Starboard Observation Deck">
-      <inherit name="editor_room" />
-      <usedefaultprefix type="boolean">false</usedefaultprefix>
-      <prefix>the</prefix>
-      <exit alias="southwest" to="North Hall">
-        <inherit name="southwestdirection" />
-      </exit>
-    </object>
-    <object name="Recreation Room">
-      <inherit name="editor_room" />
-      <usedefaultprefix type="boolean">false</usedefaultprefix>
-      <prefix>the</prefix>
-      <exit alias="northwest" to="Elevator Down">
-        <inherit name="northwestdirection" />
-      </exit>
-      <exit alias="north" to="Crew Quarters">
-        <inherit name="northdirection" />
-      </exit>
-      <exit alias="south" to="Kitchen">
-        <inherit name="southdirection" />
-      </exit>
-    </object>
-    <object name="Kitchen">
-      <inherit name="editor_room" />
-      <usedefaultprefix type="boolean">false</usedefaultprefix>
-      <prefix>the</prefix>
-      <exit alias="north" to="Recreation Room">
-        <inherit name="northdirection" />
-      </exit>
-    </object>
-    <object name="Elevator Up">
-      <inherit name="editor_room" />
-      <usedefaultprefix type="boolean">false</usedefaultprefix>
-      <descprefix type="string"></descprefix>
-      <alias></alias>
-      <exitslistprefix type="string"></exitslistprefix>
-      <description type="script">
-        msg ("You enter the elevator, and take it down to the Recreation Room.")
-        MoveObject (player, Recreation Room)
-      </description>
-    </object>
-    <object name="Crew Quarters">
-      <inherit name="editor_room" />
-      <exit alias="south" to="Recreation Room">
-        <inherit name="southdirection" />
-      </exit>
+    <object name="Second Floor">
+      <inherit name="editor_object" />
+      <object name="Crew Quarters">
+        <inherit name="editor_room" />
+        <exit alias="south" to="Recreation Room">
+          <inherit name="southdirection" />
+        </exit>
+      </object>
+      <object name="Kitchen">
+        <inherit name="editor_room" />
+        <usedefaultprefix type="boolean">false</usedefaultprefix>
+        <prefix>the</prefix>
+        <exit alias="north" to="Recreation Room">
+          <inherit name="northdirection" />
+        </exit>
+      </object>
+      <object name="Recreation Room">
+        <inherit name="editor_room" />
+        <usedefaultprefix type="boolean">false</usedefaultprefix>
+        <prefix>the</prefix>
+        <exit alias="northwest" to="Elevator Down">
+          <inherit name="northwestdirection" />
+        </exit>
+        <exit alias="north" to="Crew Quarters">
+          <inherit name="northdirection" />
+        </exit>
+        <exit alias="south" to="Kitchen">
+          <inherit name="southdirection" />
+        </exit>
+      </object>
+      <object name="Elevator Up">
+        <inherit name="editor_room" />
+        <usedefaultprefix type="boolean">false</usedefaultprefix>
+        <descprefix type="string"></descprefix>
+        <alias></alias>
+        <exitslistprefix type="string"></exitslistprefix>
+        <description type="script">
+          msg ("You enter the elevator, and take it down to the Recreation Room.")
+          MoveObject (player, Recreation Room)
+        </description>
+      </object>
     </object>
   </object>
   <verb>
