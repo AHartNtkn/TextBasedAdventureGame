@@ -313,9 +313,19 @@
           </object>
           <object name="Syringe">
             <inherit name="editor_object" />
+            <inherit name="container_limited" />
             <scenery type="boolean">false</scenery>
             <take />
             <volume type="int">3</volume>
+            <extract type="scriptdictionary">
+              <item key="Bottle of Sedative">
+                MoveObject (Sedative, Syringe)
+                MoveObject (Sedative1, Syringe)
+              </item>
+            </extract>
+            <feature_container />
+            <maxvolume type="int">2</maxvolume>
+            <maxobjects type="int">0</maxobjects>
           </object>
           <object name="Hammer">
             <inherit name="editor_object" />
@@ -344,7 +354,19 @@
             </pour>
             <object name="Sedative">
               <inherit name="editor_object" />
+              <inherit name="edible" />
               <volume type="int">1</volume>
+              <alias>Sedative</alias>
+              <feature_edible />
+              <eatmsg>You consume the seditive, which causes you to feel very sleepy...</eatmsg>
+            </object>
+            <object name="Sedative1">
+              <inherit name="editor_object" />
+              <inherit name="edible" />
+              <volume type="int">1</volume>
+              <alias>Sedative</alias>
+              <feature_edible />
+              <eatmsg>You consume the seditive, which causes you to feel very sleepy...</eatmsg>
             </object>
           </object>
         </object>
@@ -379,6 +401,7 @@
             <look>Yummy pickels.</look>
             <volume type="int">5</volume>
             <take />
+            <takemsg>Default take.</takemsg>
           </object>
         </object>
         <object name="Probe">
@@ -478,5 +501,10 @@
     <property>pour</property>
     <pattern>pour</pattern>
     <defaultexpression>"You can't pour " + object.article + "."</defaultexpression>
+  </verb>
+  <verb>
+    <property>extract</property>
+    <pattern>extract</pattern>
+    <defaultexpression>"You can't extract " + object.article + "."</defaultexpression>
   </verb>
 </asl>
