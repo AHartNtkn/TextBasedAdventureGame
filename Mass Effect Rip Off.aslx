@@ -6,8 +6,22 @@
     <gameid>7f196e8b-7088-4361-8da4-8611f2854633</gameid>
     <version>0.1</version>
     <firstpublished>2015</firstpublished>
-    <menufont>Georgia, serif</menufont>
+    <menufont>'Courier New', Courier, monospace</menufont>
     <author>Anthony H, Alejandro R, Sam twins</author>
+    <backgroundimage>petgD1N.jpg</backgroundimage>
+    <setbackgroundopacity />
+    <backgroundopacity type="double">0.1</backgroundopacity>
+    <menufontsize type="int">12</menufontsize>
+    <menubackground>Black</menubackground>
+    <menuforeground>DarkSeaGreen</menuforeground>
+    <menuhoverbackground>MidnightBlue</menuhoverbackground>
+    <menuhoverforeground>DarkSalmon</menuhoverforeground>
+    <defaultforeground>Snow</defaultforeground>
+    <defaultfont>Impact, Charcoal, sans-serif</defaultfont>
+    <defaultfontsize type="int">12</defaultfontsize>
+    <defaultlinkforeground>Cyan</defaultlinkforeground>
+    <underlinehyperlinks type="boolean">false</underlinehyperlinks>
+    <defaultbackground>Black</defaultbackground>
   </game>
   <command name="look pragma">
     <pattern>look #object_one#</pattern>
