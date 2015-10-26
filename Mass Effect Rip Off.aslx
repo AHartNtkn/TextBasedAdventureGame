@@ -10,7 +10,7 @@
     <author>Anthony H, Alejandro R, Sam twins</author>
     <backgroundimage>petgD1N.jpg</backgroundimage>
     <setbackgroundopacity />
-    <backgroundopacity type="double">0.1</backgroundopacity>
+    <backgroundopacity type="double">0</backgroundopacity>
     <menufontsize type="int">12</menufontsize>
     <menubackground>Black</menubackground>
     <menuforeground>DarkSeaGreen</menuforeground>
@@ -22,6 +22,8 @@
     <defaultlinkforeground>Cyan</defaultlinkforeground>
     <underlinehyperlinks type="boolean">false</underlinehyperlinks>
     <defaultbackground>Black</defaultbackground>
+    <showlocation />
+    <showborder type="boolean">false</showborder>
   </game>
   <command name="look pragma">
     <pattern>look #object_one#</pattern>
@@ -238,9 +240,13 @@
               <item key="Scalpel">
               </item>
             </cutopenwith>
+            <usedefaultprefix type="boolean">false</usedefaultprefix>
+            <prefix>a</prefix>
             <object name="Unicorn Horn">
               <inherit name="editor_object" />
               <take />
+              <usedefaultprefix type="boolean">false</usedefaultprefix>
+              <prefix>a</prefix>
             </object>
           </object>
         </object>
