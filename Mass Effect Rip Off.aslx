@@ -425,6 +425,7 @@
             <object name="Alien Stomach">
               <inherit name="editor_object" />
               <look>A gross mass of gore. It could possibly be made into a delicious meat pie.</look>
+              <take />
             </object>
           </object>
           <object name="Jar of Eyes">
@@ -604,7 +605,7 @@
             <transparent />
             <object name="Purple Slime">
               <inherit name="editor_object" />
-              <drop type="boolean">false</drop>
+              <drop />
               <take type="script">
                 if (Gloves.worn) {
                   msg ("You scoop out the slime and hold some in your hand.")
@@ -616,6 +617,7 @@
                 }
               </take>
               <look>It's possibly some form of alien blood or atleast from out of this world.</look>
+              <volume type="int">4</volume>
             </object>
           </object>
         </object>
