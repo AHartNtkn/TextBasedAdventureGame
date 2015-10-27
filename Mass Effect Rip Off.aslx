@@ -2,6 +2,7 @@
 <asl version="550">
   <include ref="English.aslx" />
   <include ref="Core.aslx" />
+  <include ref="wearables.aslx" />
   <game name="Mass Effect Rip Off">
     <gameid>7f196e8b-7088-4361-8da4-8611f2854633</gameid>
     <version>0.1</version>
@@ -371,8 +372,15 @@
           </object>
           <object name="Gloves">
             <inherit name="editor_object" />
+            <inherit name="wearable" />
             <take />
-            <look>You see rubber gloves that just might stretch to fit you.</look>
+            <look>You see rubber gloves that just might stretch enough to fit you.</look>
+            <attr name="wear_layer" type="int">1</attr>
+            <removeable />
+            <onafterremove>You take off the gloves, enjoying the relieving peel of the glove from your suffocated skin.</onafterremove>
+            <scenery type="boolean">false</scenery>
+            <usedefaultprefix type="boolean">false</usedefaultprefix>
+            <volume type="int">4</volume>
           </object>
         </object>
         <object name="Shelf of Jars">
@@ -413,24 +421,29 @@
             <inherit name="editor_object" />
             <inherit name="container_limited" />
             <take type="boolean">false</take>
-            <look>You think it's possibly some form of alien  blood or from atleast out of this world.</look>
+            <look>A jar with a label in a weird alien language which you can't read. As you sway the jar back and forth, the odd colored slime inside jiggles, flowing only slightly.</look>
             <feature_container />
             <maxvolume type="int">4</maxvolume>
             <isopen type="boolean">false</isopen>
             <openmsg>You open the jar and immediately smell a very pungent stench.</openmsg>
             <closemsg>You close the jar and slowly the smell subsides.</closemsg>
+            <hidechildren />
+            <listchildren />
+            <listchildrenprefix>Inside is</listchildrenprefix>
             <object name="Purple Slime">
               <inherit name="editor_object" />
               <drop type="boolean">false</drop>
               <take type="script">
-                msg ("")
-                if (Got(Gloves)) {
+                if (Gloves.worn) {
                   msg ("You scoop out the slime and hold some in your hand.")
+                  AddToInventory (Purple Slime)
                 }
                 else {
-                  msg ("You scoop out the slime and play with it at first but soon after, notice that it starts to dissolve your skin and you lose your hand.")
+                  msg ("You scoop out the slime and play with it at first but soon after, notice that it starts to dissolve your skin and you lose your hand, dropping the slime to the floor.")
+                  MoveObjectHere (Purple Slime)
                 }
               </take>
+              <look>It's possibly some form of alien blood or atleast from out of this world.</look>
             </object>
           </object>
         </object>
