@@ -199,7 +199,7 @@
           <open type="boolean">false</open>
           <contentsprefix type="string"></contentsprefix>
           <look>A large blue tarp. Something big could probably be hidden under it.</look>
-          <volume type="int">20</volume>
+          <volume type="int">10</volume>
           <hidechildren />
           <maxvolume type="int">80</maxvolume>
           <listchildren type="boolean">false</listchildren>
@@ -222,21 +222,38 @@
             }
           </uncover>
           <ontake type="script">
-            HandleSingleCommand ("uncover tarp")
-            AddToInventory (Tarp)
           </ontake>
           <cover type="scriptdictionary">
-            <item key="Unicorn corpse">
-              MakeObjectInvisible (Unicorn corpse)
-              MoveObject (Unicorn corpse, Tarp)
-              msg ("You cover the Unicorn corpse with the Tarp.")
-            </item>
-            <item key="Surgical Table">
-              MakeObjectInvisible (Surgical Table)
-              MoveObject (Surgical Table, Tarp)
-              msg ("You cover the Surgical Table with the Tarp.")
-            </item>
+            <item key="Unicorn corpse"><![CDATA[
+              tarpVol = 0
+              foreach (child, GetDirectChildren(Tarp)) {
+                tarpVol = tarpVol + child.volume
+              }
+              if (Tarp.maxvolume < tarpVol + Unicorn corpse.volume) {
+                msg ("There isn't enough room under the tarp.")
+              }
+              else {
+                MakeObjectInvisible (Unicorn corpse)
+                MoveObject (Unicorn corpse, Tarp)
+                msg ("You cover the Unicorn corpse with the Tarp.")
+              }
+            ]]></item>
+            <item key="Surgical Table"><![CDATA[
+              tarpVol = 0
+              foreach (child, GetDirectChildren(Tarp)) {
+                tarpVol = tarpVol + child.volume
+              }
+              if (Tarp.maxvolume < tarpVol + Unicorn corpse.volume) {
+                msg ("There isn't enough room under the tarp.")
+              }
+              else {
+                MakeObjectInvisible (Surgical Table)
+                MoveObject (Surgical Table, Tarp)
+                msg ("You cover the Surgical Table with the Tarp.")
+              }
+            ]]></item>
           </cover>
+          <containerfullmessage>You can't put anymore things under it.</containerfullmessage>
           <object name="Unicorn corpse">
             <inherit name="editor_object" />
             <look>A large four-limbed alien creature, strongly resembling a unicorn. It has a dangerous looking horn on its head.</look>
@@ -277,6 +294,7 @@
           <look>You see several bloody surgical tools. It's odd that the aliens seem to use the same kinds that humans do.</look>
           <hidechildren />
           <listchildren />
+          <volume type="int">40</volume>
           <object name="Tongs">
             <inherit name="editor_object" />
             <scenery type="boolean">false</scenery>
@@ -393,29 +411,182 @@
           <alt type="stringlist" />
           <object name="Jar of Stomach">
             <inherit name="editor_object" />
+            <inherit name="container_limited" />
             <take />
             <scenery type="boolean">false</scenery>
             <volume type="int">5</volume>
+            <feature_container />
+            <maxvolume type="int">4</maxvolume>
+            <look>A jar of gore. On the side is a labal reading "Stomach".</look>
+            <isopen type="boolean">false</isopen>
+            <hidechildren />
+            <listchildren />
+            <transparent />
+            <object name="Alien Stomach">
+              <inherit name="editor_object" />
+              <look>A gross mass of gore. It could possibly be made into a delicious meat pie.</look>
+            </object>
           </object>
           <object name="Jar of Eyes">
             <inherit name="editor_object" />
+            <inherit name="container_limited" />
             <take />
             <scenery type="boolean">false</scenery>
             <volume type="int">5</volume>
+            <look>A jar filled with many alien eyes.</look>
+            <feature_container />
+            <maxvolume type="int">4</maxvolume>
+            <isopen type="boolean">false</isopen>
+            <hidechildren />
+            <listchildren />
+            <transparent />
+            <object name="Human Eye">
+              <inherit name="editor_object" />
+              <look>An unsettlingly familiar looking eye ball.</look>
+              <take />
+              <volume type="int">1</volume>
+            </object>
+            <object name="Compound Eye">
+              <inherit name="editor_object" />
+              <take />
+              <volume type="int">1</volume>
+              <look>An eye made up of many tiny units. It looks like a giand fly's eye.</look>
+            </object>
+            <object name="Reptilian Eye">
+              <inherit name="editor_object" />
+              <volume type="int">1</volume>
+              <take />
+              <look>A green eye with the vertical slit characteristic of a reptile, though with alien creatures you never really know.</look>
+            </object>
+            <object name="Refractive Eyes">
+              <inherit name="editor_object" />
+              <look>An eye which reflects light back at you from the cornea, similar to a cat's eye.</look>
+              <volume type="int">1</volume>
+              <take />
+            </object>
           </object>
           <object name="Jar of Peanuts">
             <inherit name="editor_object" />
+            <inherit name="container_limited" />
             <look>An odd jar, filled with peanuts. On it is a label reading "Jar of: Deez Nutz".</look>
             <take />
             <scenery type="boolean">false</scenery>
             <volume type="int">5</volume>
+            <feature_container />
+            <maxvolume type="int">4</maxvolume>
+            <isopen type="boolean">false</isopen>
+            <hidechildren />
+            <listchildren />
+            <transparent />
+            <object name="Peanut">
+              <inherit name="editor_object" />
+              <inherit name="edible" />
+              <look>It looks like an ordinary peanut.</look>
+              <take />
+              <volume type="int">0</volume>
+              <feature_edible />
+              <eatmsg>You consume the peanut. These have clearly aged beyond the ideal.</eatmsg>
+              <alias>Peanut</alias>
+              <attr name="feature_usegive" type="boolean">false</attr>
+              <use type="script">
+              </use>
+            </object>
+            <object name="Peanut1">
+              <inherit name="editor_object" />
+              <inherit name="edible" />
+              <look>It looks like an ordinary peanut.</look>
+              <take />
+              <volume type="int">0</volume>
+              <feature_edible />
+              <eatmsg>You consume the peanut. These have clearly aged beyond the ideal.</eatmsg>
+              <alias>Peanut</alias>
+              <attr name="feature_usegive" type="boolean">false</attr>
+              <use type="script">
+              </use>
+            </object>
+            <object name="Peanut2">
+              <inherit name="editor_object" />
+              <inherit name="edible" />
+              <look>It looks like an ordinary peanut.</look>
+              <take />
+              <volume type="int">0</volume>
+              <feature_edible />
+              <eatmsg>You consume the peanut. These have clearly aged beyond the ideal.</eatmsg>
+              <alias>Peanut</alias>
+              <attr name="feature_usegive" type="boolean">false</attr>
+              <use type="script">
+              </use>
+            </object>
+            <object name="Peanut3">
+              <inherit name="editor_object" />
+              <inherit name="edible" />
+              <look>It looks like an ordinary peanut.</look>
+              <take />
+              <volume type="int">0</volume>
+              <feature_edible />
+              <eatmsg>You consume the peanut. These have clearly aged beyond the ideal.</eatmsg>
+              <alias>Peanut</alias>
+              <attr name="feature_usegive" type="boolean">false</attr>
+              <use type="script">
+              </use>
+            </object>
+            <object name="Peanut4">
+              <inherit name="editor_object" />
+              <inherit name="edible" />
+              <look>It looks like an ordinary peanut.</look>
+              <take />
+              <volume type="int">0</volume>
+              <feature_edible />
+              <eatmsg>You consume the peanut. These have clearly aged beyond the ideal.</eatmsg>
+              <alias>Peanut</alias>
+              <attr name="feature_usegive" type="boolean">false</attr>
+              <use type="script">
+              </use>
+            </object>
           </object>
           <object name="Jar of Pickles">
             <inherit name="editor_object" />
+            <inherit name="container_limited" />
             <look>Yummy pickels.</look>
             <volume type="int">5</volume>
             <take />
             <takemsg>Default take.</takemsg>
+            <feature_container />
+            <isopen type="boolean">false</isopen>
+            <maxvolume type="int">4</maxvolume>
+            <hidechildren />
+            <listchildren />
+            <transparent />
+            <object name="Pickle">
+              <inherit name="editor_object" />
+              <inherit name="edible" />
+              <look>A pickle. It doesn't look alien at all.</look>
+              <feature_edible />
+              <eatmsg>You consume the pickle. After finishing, you puke in your mouth, only now remembering that you hate pickles.</eatmsg>
+              <take />
+              <volume type="int">1</volume>
+              <alias>Pickle</alias>
+            </object>
+            <object name="Pickle1">
+              <inherit name="editor_object" />
+              <inherit name="edible" />
+              <look>A pickle. It doesn't look alien at all.</look>
+              <feature_edible />
+              <eatmsg>You consume the pickle. After finishing, you puke in your mouth, only now remembering that you hate pickles.</eatmsg>
+              <take />
+              <volume type="int">1</volume>
+              <alias>Pickle</alias>
+            </object>
+            <object name="Pickle2">
+              <inherit name="editor_object" />
+              <inherit name="edible" />
+              <look>A pickle. It doesn't look alien at all.</look>
+              <feature_edible />
+              <eatmsg>You consume the pickle. After finishing, you puke in your mouth, only now remembering that you hate pickles.</eatmsg>
+              <take />
+              <volume type="int">1</volume>
+              <alias>Pickle</alias>
+            </object>
           </object>
           <object name="Jar of Purple Slime">
             <inherit name="editor_object" />
@@ -430,6 +601,7 @@
             <hidechildren />
             <listchildren />
             <listchildrenprefix>Inside is</listchildrenprefix>
+            <transparent />
             <object name="Purple Slime">
               <inherit name="editor_object" />
               <drop type="boolean">false</drop>
@@ -550,4 +722,13 @@
     <pattern>extract</pattern>
     <defaultexpression>"You can't extract " + object.article + "."</defaultexpression>
   </verb>
+  <command name="empty pragma">
+    <unresolved>remove</unresolved>
+    <pattern>empty #object_one#</pattern>
+    <script>
+      foreach (child, GetDirectChildren(object_one)) {
+        AddToInventory (child)
+      }
+    </script>
+  </command>
 </asl>
