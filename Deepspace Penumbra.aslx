@@ -3,7 +3,7 @@
   <include ref="English.aslx" />
   <include ref="Core.aslx" />
   <include ref="wearables.aslx" />
-  <game name="Mass Effect Rip Off">
+  <game name="Deepspace Penumbra">
     <gameid>7f196e8b-7088-4361-8da4-8611f2854633</gameid>
     <version>0.1</version>
     <firstpublished>2015</firstpublished>
