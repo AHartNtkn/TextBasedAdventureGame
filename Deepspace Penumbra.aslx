@@ -29,6 +29,10 @@
     <showhealth type="boolean">false</showhealth>
     <feature_asktell />
     <feature_limitinventory />
+    <description>A sci-fi adventure where you take over the galaxy!</description>
+    <category>Sci-Fi</category>
+    <difficulty>Easy</difficulty>
+    <cruelty>Polite</cruelty>
   </game>
   <command name="look pragma">
     <pattern>look #object_one#</pattern>

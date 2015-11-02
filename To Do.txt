@@ -1,0 +1,81 @@
+Give descriptions for all room exits;
+	Examination;
+	Science
+	South Hall
+	North Hall
+	Medical Bay
+	Engineering
+	Misc, Storage
+	Armoury
+	Obervation Deck 1
+	Observation Deck 2
+	Airlock
+	Navigation
+	Recreation
+	Crew Quarters
+	Kitchen
+
+Examination room;
+	Give descriptions to surgival items in examination room
+	Give "cut using" tags to saw and scalpel, and use that to implement cutting verb.
+	Program in AI person to catch you in first room.
+		Alien should hold laser scalpel, lab coat, translator, and pass card
+	Program fume jar to kill you
+	Program jars to be throwable
+
+Science Room;
+	Program scientist in second room, and timings for that room.
+		Sneak attack
+		Tap, 30 seconds to respond
+		Threaten, and then talk to
+			Ask about Who are you?
+				Who are your people?
+				About chemicals
+		Tie up (20 min timer?)
+	Program sedative to work on alien
+	Chemicals which can be mixed for various effects
+		Explosion
+		Fumes
+		Health
+		Strength
+		Acid
+	A paper with instructions which can be translated
+	Microscope
+	Rock/ soil samples
+	Cabinet with beakers
+		Add liquid system, used with syringes and beakers
+	seeds
+	pens
+	Computer??
+		Personal info on crew
+		Encyclopedia
+
+Medical bay
+	Seditives
+	Medical kit
+		Syringe
+		Bandages
+		gauze
+	Blood tanks
+	Leeches
+	Off-button hypospray
+	biogel
+	Catheter
+	Sedated alien
+		What do do if woken up (decide in meeting)
+
+Misc. Storage
+	Cleaning supplies
+		Bleach
+	Rope (can be used to tie things/ people up)
+	Mop
+		
+Armoury
+	Alien Blaster		
+
+
+
+
+
+
+		
