@@ -8,7 +8,7 @@
     <version>0.1</version>
     <firstpublished>2015</firstpublished>
     <menufont>'Courier New', Courier, monospace</menufont>
-    <author>Anthony H, Alejandro R, Sam twins</author>
+    <author>Anthony H, Alejandro R, Danial W., Samuel W, William A.</author>
     <backgroundimage>petgD1N.jpg</backgroundimage>
     <setbackgroundopacity />
     <backgroundopacity type="double">0</backgroundopacity>
@@ -45,6 +45,7 @@
     <inherit name="editor_object" />
     <object name="First Floor">
       <inherit name="editor_object" />
+      <scenery />
       <object name="Starboard Observation Deck">
         <inherit name="editor_room" />
         <usedefaultprefix type="boolean">false</usedefaultprefix>
@@ -204,6 +205,7 @@
           <maxvolume type="int">80</maxvolume>
           <listchildren type="boolean">false</listchildren>
           <take />
+          <containerfullmessage>You can't put anymore things under it.</containerfullmessage>
           <uncover type="script">
             if (ListCount(GetDirectChildren(Tarp))=0) {
               msg ("There is nothing under the Tarp to uncover.")
@@ -253,7 +255,6 @@
               }
             ]]></item>
           </cover>
-          <containerfullmessage>You can't put anymore things under it.</containerfullmessage>
           <object name="Unicorn corpse">
             <inherit name="editor_object" />
             <look>A large four-limbed alien creature, strongly resembling a unicorn. It has a dangerous looking horn on its head.</look>
@@ -606,6 +607,8 @@
             <object name="Purple Slime">
               <inherit name="editor_object" />
               <drop />
+              <look>It's possibly some form of alien blood or atleast from out of this world.</look>
+              <volume type="int">4</volume>
               <take type="script">
                 if (Gloves.worn) {
                   msg ("You scoop out the slime and hold some in your hand.")
@@ -616,8 +619,6 @@
                   MoveObjectHere (Purple Slime)
                 }
               </take>
-              <look>It's possibly some form of alien blood or atleast from out of this world.</look>
-              <volume type="int">4</volume>
             </object>
           </object>
         </object>
