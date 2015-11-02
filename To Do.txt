@@ -22,6 +22,7 @@ Examination room;
 		Alien should hold laser scalpel, lab coat, translator, and pass card
 	Program fume jar to kill you
 	Program jars to be throwable
+	Program jar description to be sensitive to contents.
 
 Science Room;
 	Program scientist in second room, and timings for that room.
