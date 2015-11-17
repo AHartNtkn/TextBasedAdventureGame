@@ -619,8 +619,12 @@
                   AddToInventory (Purple Slime)
                 }
                 else {
-                  msg ("You scoop out the slime and play with it at first but soon after, notice that it starts to dissolve your skin and you lose your hand, dropping the slime to the floor.")
+                  msg ("You scoop out the slime and play with it at first but soon after, notice that it starts to dissolve your skin and you lose your hand, dropping the slime to the floor. You lose hold of your inventory.")
                   MoveObjectHere (Purple Slime)
+                  foreach (child, GetDirectChildren(player)) {
+                    MoveObjectHere (child)
+                  }
+                  player.maxvolume = player.maxvolume-10
                 }
               </take>
             </object>
