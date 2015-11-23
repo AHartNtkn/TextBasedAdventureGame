@@ -344,22 +344,20 @@
             <take />
             <volume type="int">3</volume>
             <feature_container />
-            <maxvolume type="int">2</maxvolume>
+            <maxvolume type="int">1</maxvolume>
             <maxobjects type="int">0</maxobjects>
-            <extract type="scriptdictionary">
-              <item key="Bottle of Sedative">
-                MoveObject (Sedative, Syringe)
-                MoveObject (Sedative1, Syringe)
-              </item>
-            </extract>
             <look>The tool you saw in your dad's arm everytime he came home from work. Also you blieve it can used to store liquids.</look>
+            <close type="boolean">false</close>
+            <open type="boolean">false</open>
+            <isopen />
+            <transparent />
           </object>
           <object name="Hammer">
             <inherit name="editor_object" />
             <scenery type="boolean">false</scenery>
             <take />
             <volume type="int">4</volume>
-            <look>A metal hammer that is obviously useless; because nails can only be used to nail other nails. </look>
+            <look>A metal hammer which is obviously useless. Only nails can be used to nail other nails. </look>
           </object>
           <object name="Bottle of Sedative">
             <inherit name="editor_object" />
@@ -380,6 +378,7 @@
               if (Contains (,)) {
               }
             </pour>
+            <listchildren />
             <object name="Sedative">
               <inherit name="editor_object" />
               <inherit name="edible" />
@@ -387,14 +386,18 @@
               <alias>Sedative</alias>
               <feature_edible />
               <eatmsg>You consume the seditive, which causes you to feel very sleepy...</eatmsg>
-            </object>
-            <object name="Sedative1">
-              <inherit name="editor_object" />
-              <inherit name="edible" />
-              <volume type="int">1</volume>
-              <alias>Sedative</alias>
-              <feature_edible />
-              <eatmsg>You consume the seditive, which causes you to feel very sleepy...</eatmsg>
+              <isLiquid type="string"></isLiquid>
+              <extract type="scriptdictionary">
+                <item key="Syringe">
+                  if (ListCount(GetDirectChildren(Syringe))=1) {
+                    msg ("The syringe already contains "+ObjectListItem(GetDirectChildren(Syringe),0).name+".")
+                  }
+                  else {
+                    MoveObject (Sedative, Syringe)
+                    msg ("You extract the sedative into the syringe.")
+                  }
+                </item>
+              </extract>
             </object>
           </object>
           <object name="Gloves">
@@ -596,6 +599,21 @@
               <take />
               <volume type="int">1</volume>
               <alias>Pickle</alias>
+            </object>
+            <object name="Pickle Juice">
+              <inherit name="editor_object" />
+              <look>A grotesque green liquid. Just the smell of it makes you want vomit.</look>
+              <extract type="scriptdictionary">
+                <item key="Syringe">
+                  if (ListCount(GetDirectChildren(Syringe))=1) {
+                    msg ("The syringe already contains "+ObjectListItem(GetDirectChildren(Syringe),0).name+".")
+                  }
+                  else {
+                    MoveObject (Pickle Juice, Syringe)
+                    msg ("You extract the sedative into the syringe.")
+                  }
+                </item>
+              </extract>
             </object>
           </object>
           <object name="Jar of Purple Slime">
