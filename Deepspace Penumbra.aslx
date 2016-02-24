@@ -12,14 +12,14 @@
     <backgroundimage>petgD1N.jpg</backgroundimage>
     <setbackgroundopacity />
     <backgroundopacity type="double">0</backgroundopacity>
-    <menufontsize type="int">12</menufontsize>
+    <menufontsize type="int">24</menufontsize>
     <menubackground>Black</menubackground>
     <menuforeground>DarkSeaGreen</menuforeground>
     <menuhoverbackground>MidnightBlue</menuhoverbackground>
     <menuhoverforeground>DarkSalmon</menuhoverforeground>
     <defaultforeground>Snow</defaultforeground>
     <defaultfont>Impact, Charcoal, sans-serif</defaultfont>
-    <defaultfontsize type="int">12</defaultfontsize>
+    <defaultfontsize type="int">24</defaultfontsize>
     <defaultlinkforeground>Cyan</defaultlinkforeground>
     <underlinehyperlinks type="boolean">false</underlinehyperlinks>
     <defaultbackground>Black</defaultbackground>
@@ -374,11 +374,11 @@
             <feature_edible />
             <isopen type="boolean">false</isopen>
             <maxvolume type="int">2</maxvolume>
+            <listchildren />
             <pour type="script">
               if (Contains (,)) {
               }
             </pour>
-            <listchildren />
             <object name="Sedative">
               <inherit name="editor_object" />
               <inherit name="edible" />
