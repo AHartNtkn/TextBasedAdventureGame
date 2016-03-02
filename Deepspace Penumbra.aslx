@@ -191,11 +191,6 @@
               finish
             </item>
           </kill>
-          <killself type="script">
-            msg ("You stab yourself in the throat. As you bleed you, you wonder, \"what was the point\"?")
-            msg ("Game over.")
-            finish
-          </killself>
         </object>
         <exit alias="north" to="Science Room">
           <inherit name="northdirection" />
@@ -336,7 +331,7 @@
               <value>saw</value>
             </alt>
             <volume type="int">4</volume>
-            <look>You can see your face on the reflection of the metal teeth.</look>
+            <look>A saw for sawing bones. It is not skin safe. What is this, the 1920? No. Why would you ask that? Also, you can see your face on the reflection of the metal teeth.</look>
           </object>
           <object name="Syringe">
             <inherit name="editor_object" />
