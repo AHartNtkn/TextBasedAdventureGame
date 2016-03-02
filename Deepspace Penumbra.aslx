@@ -191,6 +191,11 @@
               finish
             </item>
           </kill>
+          <killself type="script">
+            msg ("You stab yourself in the throat. As you bleed you, you wonder, \"what was the point\"?")
+            msg ("Game over.")
+            finish
+          </killself>
         </object>
         <exit alias="north" to="Science Room">
           <inherit name="northdirection" />
@@ -272,17 +277,13 @@
               <item key="Scalpel">
                 if (Contains (Unicorn corpse,Unicorn Horn)) {
                   MoveObject (Unicorn Horn, Examination Room)
-                  msg ("You start slicing up the unicorn. Eventually it turns into a bloody pulp. You notice that something fall to the floor.")
+                  msg ("You start slicing up the unicorn. Eventually it turns into a bloody pulp. You notice that something falls to the floor.")
                 }
                 else {
                   msg ("You continue slicing up the unicorn corpse, though, at this point it could pass for any sort of finely minced meat.")
                 }
               </item>
             </cutwith>
-            <cutopenwith type="scriptdictionary">
-              <item key="Scalpel">
-              </item>
-            </cutopenwith>
             <object name="Unicorn Horn">
               <inherit name="editor_object" />
               <take />
@@ -764,4 +765,9 @@
       }
     </script>
   </command>
+  <verb>
+    <property>killself</property>
+    <pattern>kill self</pattern>
+    <defaultexpression>"You can't kill self " + object.article + "."</defaultexpression>
+  </verb>
 </asl>
