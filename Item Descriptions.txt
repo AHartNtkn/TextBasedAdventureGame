@@ -1,0 +1,19 @@
+This file stores item descriptions which are to be added to the game.
+
+Include item name, short summary of what it does, a description for when the player looks at it, and any other text when specific actions are taken.
+
+Example format:
+
+Item: Scalpal
+Summary: A tool used to solve cutting and disecting puzzles.
+Description:
+"
+A sharp implement for cutting into things, especially people.
+"
+When failing to cut:
+"
+You try cutting, but eventually stop before your scalpel becomes as dull as you are.
+"
+
+
+Item:
