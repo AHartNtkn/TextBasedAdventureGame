@@ -84,6 +84,14 @@
         <exit alias="east" to="North Hall">
           <inherit name="eastdirection" />
         </exit>
+        <object name="Mop">
+          <inherit name="editor_object" />
+          <look>You see a fear boner. You are aroused... The arousal immediately dissipates when you realize that you're only looking at a mop... Pretty sexy mop though.</look>
+          <clean>You tidy things up.</clean>
+          <take />
+          <volume type="int">3</volume>
+          <play>You play with the mop turning your fear boner into a shame boner. </play>
+        </object>
       </object>
       <object name="Engineering">
         <inherit name="editor_room" />
@@ -115,6 +123,15 @@
         <exit alias="west" to="South Hall">
           <inherit name="westdirection" />
         </exit>
+        <object name="Blood Tank 1">
+          <inherit name="editor_object" />
+          <visible />
+          <look>You see </look>
+          <alt type="stringlist">
+            <value>Blood Tank</value>
+          </alt>
+          <listalias>Blood Tank</listalias>
+        </object>
       </object>
       <object name="North Hall">
         <inherit name="editor_room" />
@@ -376,11 +393,11 @@
             <isopen type="boolean">false</isopen>
             <maxvolume type="int">2</maxvolume>
             <listchildren />
+            <look>A bottle containing a liquid for knocking people (and non-people) unconsious. If you think it's unrealistic that a sedative could work on any and all life, well... shut up.</look>
             <pour type="script">
               if (Contains (,)) {
               }
             </pour>
-            <look>A bottle containing a liquid for knocking people (and non-people) unconsious. If you think it's unrealistic that a sedative could work on any and all life, well... shut up.</look>
             <object name="Sedative">
               <inherit name="editor_object" />
               <inherit name="edible" />
@@ -770,5 +787,15 @@
     <property>killself</property>
     <pattern>kill self</pattern>
     <defaultexpression>"You can't kill self " + object.article + "."</defaultexpression>
+  </verb>
+  <verb>
+    <property>clean</property>
+    <pattern>clean</pattern>
+    <defaultexpression>"You can't clean " + object.article + "."</defaultexpression>
+  </verb>
+  <verb>
+    <property>play</property>
+    <pattern>play</pattern>
+    <defaultexpression>"You can't play " + object.article + "."</defaultexpression>
   </verb>
 </asl>
