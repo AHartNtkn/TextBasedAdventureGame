@@ -54,6 +54,7 @@
         <inherit name="editor_room" />
         <usedefaultprefix type="boolean">false</usedefaultprefix>
         <prefix>the</prefix>
+        <description>A beautiful room with a large, curved window out into the stars. This is intended for strategic use, but clearly it's more useful for leasure.</description>
         <exit alias="southwest" to="North Hall">
           <inherit name="southwestdirection" />
         </exit>
@@ -62,6 +63,7 @@
         <inherit name="editor_room" />
         <usedefaultprefix type="boolean">false</usedefaultprefix>
         <prefix>the</prefix>
+        <description><![CDATA[The large window looking out to the stars is <i>almost</i> enough to distract you from the bar on the east side of the room.]]></description>
         <exit alias="southeast" to="North Hall">
           <inherit name="southeastdirection" />
         </exit>
@@ -70,6 +72,7 @@
         <inherit name="editor_room" />
         <usedefaultprefix type="boolean">false</usedefaultprefix>
         <prefix>the</prefix>
+        <description>A serine room with a circular, elevated platform in its center. The captain sits there, looking over his subordinates, and out into the inky abyss of space through a great, curved window. Also, everything is illuminated in orange and cyan, for some reason.</description>
         <exit alias="south" to="North Hall">
           <inherit name="southdirection" />
         </exit>
@@ -77,6 +80,7 @@
       <object name="Storage">
         <inherit name="editor_room" />
         <usedefaultprefix type="boolean">false</usedefaultprefix>
+        <description>A room with several shelves of miscellaneous junk. The janitor gets more use out of this place than the rest of the crew.</description>
         <exit alias="east" to="North Hall">
           <inherit name="eastdirection" />
         </exit>
@@ -84,6 +88,7 @@
       <object name="Engineering">
         <inherit name="editor_room" />
         <usedefaultprefix type="boolean">false</usedefaultprefix>
+        <description>The room is saturated with the sound of the buzzing engine. It spews a weird white plasma behind safety glass. Several panels line the room, controlling the various systems aboard this ship.3</description>
         <exit alias="north" to="South Hall">
           <inherit name="northdirection" />
         </exit>
@@ -302,7 +307,7 @@
             <take />
             <usedefaultprefix type="boolean">false</usedefaultprefix>
             <volume type="int">3</volume>
-            <look>A shiny sliver tool used for picking things up without touching them with the hands or fingers.</look>
+            <look><![CDATA[A shiny sliver tool used for picking things up without touching them with the hands or fingers. You learned the hard way how useful <i>that</i> can be.]]></look>
           </object>
           <object name="Scalpel">
             <inherit name="editor_object" />
@@ -375,6 +380,7 @@
               if (Contains (,)) {
               }
             </pour>
+            <look>A bottle containing a liquid for knocking people (and non-people) unconsious. If you think it's unrealistic that a sedative could work on any and all life, well... shut up.</look>
             <object name="Sedative">
               <inherit name="editor_object" />
               <inherit name="edible" />
@@ -400,7 +406,7 @@
             <inherit name="editor_object" />
             <inherit name="wearable" />
             <take />
-            <look>You see rubber gloves that just might stretch enough to fit you.</look>
+            <look>You see rubber gloves that just might stretch enough to fit you. </look>
             <attr name="wear_layer" type="int">1</attr>
             <removeable />
             <onafterremove>You take off the gloves, enjoying the relieving peel of the glove from your suffocated skin.</onafterremove>
