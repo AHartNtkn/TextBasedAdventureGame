@@ -482,6 +482,13 @@
             <hidechildren />
             <listchildren />
             <transparent />
+            <break type="script">
+              msg ("You throw the jar to the ground. The eyes spread to and frow.")
+              foreach (child, GetDirectChildren(Jar of Eyes)) {
+                MoveObjectHere (child)
+              }
+              RemoveObject (Jar of Eyes)
+            </break>
             <object name="Human Eye">
               <inherit name="editor_object" />
               <look>An unsettlingly familiar looking eye ball.</look>
@@ -520,6 +527,13 @@
             <hidechildren />
             <listchildren />
             <transparent />
+            <break type="script">
+              msg ("You throw the jar to the ground, spreading your nuts all over the place.")
+              foreach (child, GetDirectChildren(Jar of Peanuts)) {
+                MoveObjectHere (child)
+              }
+              RemoveObject (Jar of Peanuts)
+            </break>
             <object name="Peanut">
               <inherit name="editor_object" />
               <inherit name="edible" />
@@ -599,6 +613,13 @@
             <hidechildren />
             <listchildren />
             <transparent />
+            <break type="script">
+              msg ("You throw the jar to the ground, spreading the tortured cucumbers across the floor. The smell is terrible!")
+              foreach (child, GetDirectChildren(Jar of Pickles)) {
+                MoveObjectHere (child)
+              }
+              RemoveObject (Jar of Pickles)
+            </break>
             <object name="Pickle">
               <inherit name="editor_object" />
               <inherit name="edible" />
