@@ -708,6 +708,10 @@
         <exit alias="south" to="Recreation Room">
           <inherit name="southdirection" />
         </exit>
+        <object name="Robot Sexual Relief Machine">
+          <inherit name="editor_object" />
+          <look>You are very lonely being in a ship in space and are in some need of some affection. You notice that the robot has many accessories to it that can help statisfy your needs.</look>
+        </object>
       </object>
       <object name="Kitchen">
         <inherit name="editor_room" />
