@@ -20,7 +20,6 @@ Examination room;
 	Give "cut using" tags to saw and scalpel, and use that to implement cutting verb.
 	Program in AI person to catch you in first room.
 		Alien should hold laser scalpel, lab coat, translator, and pass card
-	Program fume jar to kill you
 	Program jars to be throwable
 	Program jar description to be sensitive to contents.
 

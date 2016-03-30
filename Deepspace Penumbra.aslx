@@ -680,6 +680,22 @@
               </take>
             </object>
           </object>
+          <object name="Fume Jar">
+            <inherit name="editor_object" />
+            <inherit name="openable" />
+            <look>A jar filled with a pink gas. It's labeled with an alien skull and cross bones. You wonder what it could possibly mean.</look>
+            <usedefaultprefix type="boolean">false</usedefaultprefix>
+            <feature_container />
+            <openscript type="script">
+              msg ("You open the jar, and the pink gas jets out, filling the room and your lungs. You suffocate in burning agony. Too bad there was no way to predict this outcome.")
+              finish
+            </openscript>
+            <take />
+            <break type="script">
+              msg ("You break the jar by throwing it to the ground. The pink gas inside spreads throughout the room. You breathe it in before having a chance to react. You suffocate in burning agony. Too bad there was no way to predict this outcome.")
+              finish
+            </break>
+          </object>
         </object>
         <object name="Probe">
           <inherit name="editor_object" />
