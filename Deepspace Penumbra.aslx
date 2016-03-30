@@ -686,11 +686,11 @@
             <look>A jar filled with a pink gas. It's labeled with an alien skull and cross bones. You wonder what it could possibly mean.</look>
             <usedefaultprefix type="boolean">false</usedefaultprefix>
             <feature_container />
+            <take />
             <openscript type="script">
               msg ("You open the jar, and the pink gas jets out, filling the room and your lungs. You suffocate in burning agony. Too bad there was no way to predict this outcome.")
               finish
             </openscript>
-            <take />
             <break type="script">
               msg ("You break the jar by throwing it to the ground. The pink gas inside spreads throughout the room. You breathe it in before having a chance to react. You suffocate in burning agony. Too bad there was no way to predict this outcome.")
               finish
@@ -736,12 +736,13 @@
         </exit>
         <object name="Robot Sexual Relief Machine">
           <inherit name="editor_object" />
-          <look>You are very lonely being in a ship in space and are in some need of some affection. You notice that the robot has many accessories to it that can help statisfy your needs.</look>
+          <look>As a lonely being floating through space, you find yourself longing for affection. Thankfully, you notice the robot in the corner, which has many accessories to statisfy your needs.</look>
         </object>
         <object name="Player Bed">
           <inherit name="editor_object" />
           <alias>Player's Bed</alias>
           <look>A very plain bed that looks very flat and is very hard on your back.</look>
+          <visible />
         </object>
         <object name="Toilet">
           <inherit name="editor_object" />
