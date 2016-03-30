@@ -192,6 +192,16 @@
         <exit alias="east" to="South Hall">
           <inherit name="eastdirection" />
         </exit>
+        <object name="Beaker">
+          <inherit name="editor_object" />
+          <look>It a beaker, filled with no thing.</look>
+          <scenery />
+          <break type="script">
+            msg ("You smash the beaker to the ground. As the pieces clatter into silence, you wonder why you did that in the first place.")
+            RemoveObject (Beaker)
+          </break>
+          <take />
+        </object>
       </object>
       <object name="Examination Room">
         <inherit name="editor_room" />
@@ -801,5 +811,10 @@
     <property>play</property>
     <pattern>play</pattern>
     <defaultexpression>"You can't play " + object.article + "."</defaultexpression>
+  </verb>
+  <verb>
+    <property>break</property>
+    <pattern>break</pattern>
+    <defaultexpression>"You can't break " + object.article + "."</defaultexpression>
   </verb>
 </asl>
