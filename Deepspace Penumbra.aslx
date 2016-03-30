@@ -196,11 +196,11 @@
           <inherit name="editor_object" />
           <look>It a beaker, filled with no thing.</look>
           <scenery />
+          <take />
           <break type="script">
             msg ("You smash the beaker to the ground. As the pieces clatter into silence, you wonder why you did that in the first place.")
             RemoveObject (Beaker)
           </break>
-          <take />
         </object>
       </object>
       <object name="Examination Room">
@@ -721,6 +721,15 @@
         <object name="Robot Sexual Relief Machine">
           <inherit name="editor_object" />
           <look>You are very lonely being in a ship in space and are in some need of some affection. You notice that the robot has many accessories to it that can help statisfy your needs.</look>
+        </object>
+        <object name="Player Bed">
+          <inherit name="editor_object" />
+          <alias>Player's Bed</alias>
+          <look>A very plain bed that looks very flat and is very hard on your back.</look>
+        </object>
+        <object name="Toilet">
+          <inherit name="editor_object" />
+          <look>You look down the toilet only to realize it's backed up with a giant purple turd that smells like a wet cat died with skunk piss sprayed all over.</look>
         </object>
       </object>
       <object name="Kitchen">
