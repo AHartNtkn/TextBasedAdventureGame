@@ -123,14 +123,24 @@
         <exit alias="west" to="South Hall">
           <inherit name="westdirection" />
         </exit>
-        <object name="Blood Tank 1">
+        <object name="Blood Tank">
           <inherit name="editor_object" />
           <visible />
-          <look>You see </look>
+          <look>You see a tank full of blood. Upon closer inspection, you see that it contains... an oddly arousing silhouette. </look>
           <alt type="stringlist">
             <value>Blood Tank</value>
           </alt>
           <listalias>Blood Tank</listalias>
+        </object>
+        <object name="Blood Tank1">
+          <inherit name="editor_object" />
+          <alias>Blood Tank</alias>
+          <look>You see a tank full of blood. This one contains... something I'll hopefully come up with later. </look>
+        </object>
+        <object name="Blood Tank2">
+          <inherit name="editor_object" />
+          <alias>Blood Tank</alias>
+          <look>You see a tank full of blood. This one seems to have some mud stuck to the outside...</look>
         </object>
       </object>
       <object name="North Hall">
