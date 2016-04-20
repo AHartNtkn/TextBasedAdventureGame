@@ -212,6 +212,10 @@
             RemoveObject (Beaker)
           </break>
         </object>
+        <object name="Microscope">
+          <inherit name="editor_object" />
+          <look>Your eyes a shiny and seemly useful tool for the examing objects.</look>
+        </object>
       </object>
       <object name="Examination Room">
         <inherit name="editor_room" />
@@ -778,6 +782,10 @@
         <object name="Toilet">
           <inherit name="editor_object" />
           <look>You look down the toilet only to realize it's backed up with a giant purple turd that smells like a wet cat died with skunk piss sprayed all over.</look>
+        </object>
+        <object name="Juke Box">
+          <inherit name="editor_object" />
+          <look>A awesome old school coin Juke Box that was stolen off Eath a few years back. </look>
         </object>
       </object>
       <object name="Kitchen">
