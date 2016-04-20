@@ -788,6 +788,10 @@
           <look>A awesome old school coin Juke Box that was stolen off Eath a few years back. </look>
           <turnon>The Juke Box makes a loud noise gernerated from the old gears turning.</turnon>
           <turnoff>The lights slowly turn off and the you feel somewhat depressed, knowing you turned off the tunes that made you want to boggy.</turnoff>
+          <press type="string"></press>
+          <object name="Button">
+            <inherit name="editor_object" />
+          </object>
         </object>
       </object>
       <object name="Kitchen">
@@ -883,5 +887,10 @@
     <property>break</property>
     <pattern>break</pattern>
     <defaultexpression>"You can't break " + object.article + "."</defaultexpression>
+  </verb>
+  <verb>
+    <property>press</property>
+    <pattern>press</pattern>
+    <defaultexpression>"You can't press " + object.article + "."</defaultexpression>
   </verb>
 </asl>
