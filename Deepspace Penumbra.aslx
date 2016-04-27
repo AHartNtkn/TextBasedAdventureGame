@@ -126,7 +126,7 @@
         <object name="Blood Tank">
           <inherit name="editor_object" />
           <visible />
-          <look>You see a tank full of blood. Upon closer inspection, you see that it contains... an oddly arousing silhouette. </look>
+          <look>You see a tank full of blood. Upon closer inspection, you see that it contains an oddly arousing silhouette. </look>
           <alt type="stringlist">
             <value>Blood Tank</value>
           </alt>
@@ -135,12 +135,43 @@
         <object name="Blood Tank1">
           <inherit name="editor_object" />
           <alias>Blood Tank</alias>
-          <look>You see a tank full of blood. This one contains... something I'll hopefully come up with later. </look>
+          <look>You see a tank full of blood. This one contains a slightly less arousing silhouette. It's not that it's unarousing, it's just not really your type. </look>
         </object>
         <object name="Blood Tank2">
           <inherit name="editor_object" />
           <alias>Blood Tank</alias>
           <look>You see a tank full of blood. This one seems to have some mud stuck to the outside...</look>
+        </object>
+        <object name="Sedatives">
+          <inherit name="editor_object" />
+          <article>they</article>
+          <look>You see a few white pills laying on a tray. You wonder if they were perhaps used to keep you unconscious, just as they're obviously being used on that alien in the corner.  You also see something etched onto the bottom of the tray. You can't make it all out, but it seems to say "--op-rty of B--l -o-sby". What?</look>
+        </object>
+        <object name="Medical Kit">
+          <inherit name="editor_object" />
+          <look>You see what you assume to be a standard issue medical kit. You wonder if it's complete. </look>
+          <object name="Syringe1">
+            <inherit name="editor_object" />
+            <alias>Syringe</alias>
+            <look>An empty syringe. Maybe you can fill it with something? </look>
+          </object>
+          <object name="Bandages">
+            <inherit name="editor_object" />
+            <look>A roll of bandages. You can probably wrap something with it. </look>
+          </object>
+          <object name="Gauze">
+            <inherit name="editor_object" />
+            <look>A roll of gauze. Seems pretty absorbent. </look>
+          </object>
+        </object>
+        <object name="Leeches">
+          <inherit name="editor_object" />
+          <article>they</article>
+          <look>You see a couple of leeches on a tray. Wait, isn't that a Medieval Earth thing?</look>
+        </object>
+        <object name="Unconscious Alien">
+          <inherit name="editor_object" />
+          <look>You see a sedated alien laying on a bed in the corner. Will it wake up if you poke it? </look>
         </object>
       </object>
       <object name="North Hall">
