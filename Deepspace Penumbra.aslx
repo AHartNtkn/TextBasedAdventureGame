@@ -207,7 +207,7 @@
         </object>
         <object name="Unconscious Alien">
           <inherit name="editor_object" />
-          <look>You see a sedated alien laying on a bed in the corner. Will it wake up if you poke it? </look>
+          <look>You see a sedated alien laying on a bed in the corner. Will it wake up if you poke it? You also notice at a second look that it is a female alien. You debate weather or not to mate with unconcious alien?</look>
         </object>
       </object>
       <object name="North Hall">
@@ -885,6 +885,14 @@
         <exit alias="south" to="Kitchen">
           <inherit name="southdirection" />
         </exit>
+        <object name="Ping Pong Table">
+          <inherit name="editor_object" />
+          <look>A green classic Ping Pong table that seems to have not seen use in quite some time.</look>
+        </object>
+        <object name="Air hockey Table">
+          <inherit name="editor_object" />
+          <look>You see an Air Hockey table that is fitted with hologram fans that project on the sides. They scream either cheers or profanities when a goal has been made. </look>
+        </object>
       </object>
       <object name="Elevator Up">
         <inherit name="editor_room" />
