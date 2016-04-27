@@ -149,19 +149,55 @@
         </object>
         <object name="Medical Kit">
           <inherit name="editor_object" />
+          <inherit name="container_open" />
           <look>You see what you assume to be a standard issue medical kit. You wonder if it's complete. </look>
+          <feature_container />
+          <listchildren />
+          <isopen type="boolean">false</isopen>
+          <hidechildren />
+          <take />
           <object name="Syringe1">
             <inherit name="editor_object" />
+            <inherit name="container_open" />
             <alias>Syringe</alias>
-            <look>An empty syringe. Maybe you can fill it with something? </look>
+            <look type="script">
+              if (ListCount(GetDirectChildren(Syringe1)) == 0) {
+                msg ("An empty syringe. Maybe you can fill it with something? ")
+              }
+              else {
+                msg ("The syringe contains.")
+                DisplayList (GetDirectChildren(Syringe1), false)
+              }
+            </look>
+            <visible />
+            <feature_container />
+            <close type="boolean">false</close>
+            <open type="boolean">false</open>
+            <isopen type="boolean">false</isopen>
+            <listchildren />
+            <hidechildren />
+            <extract type="scriptdictionary">
+              <item key="Pickle Juice"><![CDATA[
+                if (ListCount(GetDirectChildren(Syringe1)) > 0) {
+                  msg ("Cannot extract when syringe is full.")
+                }
+                else {
+                  msg ("You extract the pickle juice, for some reason. What plans could this possibly further?")
+                  MoveObject (Pickle Juice, Syringe1)
+                }
+              ]]></item>
+            </extract>
+            <take />
           </object>
           <object name="Bandages">
             <inherit name="editor_object" />
             <look>A roll of bandages. You can probably wrap something with it. </look>
+            <take />
           </object>
           <object name="Gauze">
             <inherit name="editor_object" />
             <look>A roll of gauze. Seems pretty absorbent. </look>
+            <take />
           </object>
         </object>
         <object name="Leeches">
